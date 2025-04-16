@@ -7,27 +7,42 @@
 		"build": "next build",
 		"start": "next start",
 		"lint": "next lint",
-		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
+		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy -- --minify",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts"
+		"cf-typegen": "wrangler types --env-interface CloudflareEnv cloudflare-env.d.ts",
+		"sw:build-prod": "NODE_ENV=production node bin/build-sw.mjs"
 	},
 	"dependencies": {
-		"next": "15.2.5",
+		"@hookform/resolvers": "^5.0.1",
+		"@next/env": "^15.3.0",
+		"@tabler/icons-react": "^3.31.0",
+		"@tsndr/cloudflare-worker-jwt": "^3.1.4",
+		"cva": "1.0.0-beta.3",
+		"firebase": "^11.6.0",
+		"mongodb": "^6.15.0",
+		"next": "15.3.0",
 		"react": "^19.0.0",
-		"react-dom": "^19.0.0"
+		"react-aria-components": "^1.8.0",
+		"react-dom": "^19.0.0",
+		"react-hook-form": "^7.55.0",
+		"server-only": "^0.0.1",
+		"zod": "^3.24.2"
 	},
 	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20250416.0",
+		"@cloudflare/vitest-pool-workers": "^0.8.17",
 		"@eslint/eslintrc": "^3",
 		"@opennextjs/cloudflare": "~1.0.0-beta.0 || ^1.0.0",
 		"@tailwindcss/postcss": "^4",
 		"@types/node": "^20",
 		"@types/react": "^19",
 		"@types/react-dom": "^19",
+		"esbuild": "^0.25.2",
 		"eslint": "^9",
 		"eslint-config-next": "15.2.5",
+		"eslint-config-prettier": "^10.1.2",
 		"tailwindcss": "^4",
 		"typescript": "^5",
+		"vitest": "^3.1.1",
 		"wrangler": "^4.11.1"
 	}
 }

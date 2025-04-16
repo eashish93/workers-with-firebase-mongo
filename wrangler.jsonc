@@ -5,7 +5,7 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "my-next-app",
-	"main": ".open-next/worker.js",
+	"main": "./custom-worker.ts",
 	"compatibility_date": "2025-03-01",
 	"compatibility_flags": [
 		"nodejs_compat"
@@ -16,7 +16,24 @@
 	},
 	"observability": {
 		"enabled": true
-	}
+	},
+	
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "MONGO_DO",
+				"class_name": "MongoDurableObject"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": [
+				"MongoDurableObject"
+			]
+		}
+	]
 	/**
 	 * Smart Placement
 	 * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement

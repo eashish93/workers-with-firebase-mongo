@@ -1,0 +1,10 @@
+.next
+build
+node_modules
+.yarn
+.open-next
+.wrangler
+.vscode
+.idea
+.DS_Store
+.env
